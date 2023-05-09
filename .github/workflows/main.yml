@@ -21,10 +21,12 @@ jobs:
       
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          credentials: ${{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
           allow-no-subscriptions: true
-
+        env: 
+          credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
         with:
